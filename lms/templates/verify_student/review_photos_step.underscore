@@ -66,7 +66,7 @@
 
       <ol class="wizard-steps">
         <li class="wizard-step step-proceed">
-          <button id="next_step_button" class="next action-primary right" aria-hidden="true" aria-disabled="true" title="Confirmation">
+          <button id="next_step_button" class="next action-primary right" aria-hidden="false" aria-disabled="false" title="Confirmation">
             <%- gettext( "Confirm" ) %>
           </button>
         </li>

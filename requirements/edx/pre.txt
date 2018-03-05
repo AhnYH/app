@@ -16,3 +16,5 @@ pip==7.1.2
 
 # Needed for meliae
 Cython==0.21.2
+cryptography==1.3.4
+pyOpenSSL==16.1.0

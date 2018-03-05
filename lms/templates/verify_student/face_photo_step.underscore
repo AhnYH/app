@@ -57,7 +57,7 @@
 
     <% if ( nextStepTitle ) { %>
     <nav class="nav-wizard" id="face_next_button_nav">
-      <button id="next_step_button" class="next action-primary is-disabled right" aria-disabled="true" title="Next">
+      <button id="next_step_button" class="next is-disabled action-primary right" aria-disabled="true" title="Next">
       <span class="sr" id="photo_message"></span>
         <%- _.sprintf(
           gettext( "Next: %(nextStepTitle)s" ),
@@ -70,3 +70,11 @@
 
   </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //$("#next_step_button").attr("aria-disabled", "true");
+        //$("#next_step_button").trigger('click');
+        //$("#next_step_button").removeAttr('disabled');
+        //$("#next_step_button").removeClass('is-disabled');
+    });
+</script>

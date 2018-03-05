@@ -33,7 +33,8 @@
 
         initializeStepViews: function( stepInfo ) {
             var verificationModel, stepViewConstructors, nextStepTitles;
-
+            alert('/Users/kotech/workspace/ecomdev5/edx-platform/lms/static/js/verify_student/views/reverify_view.js');
+            console.log(stepInfo);
             // We need to initialize this here, because
             // outside of this method the subview classes
             // might not yet have been loaded.
@@ -58,6 +59,7 @@
             verificationModel = new edx.verify_student.VerificationModel();
 
             _.each(this.stepOrder, function(name, index) {
+                alert(stepInfo);
                 var stepView = new stepViewConstructors[name]({
                     errorModel: this.errorModel,
                     nextStepTitle: nextStepTitles[index],

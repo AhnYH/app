@@ -20,7 +20,7 @@
             fullName: null,
 
             // Image data for the user's face photo.
-            faceImage: "",
+            faceImage: "abcd1234",
 
             // Image data for the user's ID photo.
             // In the case of an in-course reverification, we won't

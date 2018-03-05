@@ -8,8 +8,8 @@ from django.core.cache import cache
 from django.views.decorators.cache import cache_control
 from django.http import HttpResponse, Http404
 from django.utils import translation
-from django.shortcuts import redirect
-from django.views.decorators.csrf import ensure_csrf_cookie
+from django.shortcuts import redirect, render
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 from django.contrib.staticfiles.storage import staticfiles_storage
 
 from edxmako.shortcuts import render_to_response
@@ -22,7 +22,30 @@ from util.json_request import JsonResponse
 import branding.api as branding_api
 from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
 
+import requests
+
 log = logging.getLogger(__name__)
+
+
+@csrf_exempt
+def iamport_render(request):
+    print 'iamport render !!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    amount = request.POST.get('amount')
+    basket_id = request.POST.get('basket_id')
+    order_number = request.POST.get('order_number')
+    course_id = request.POST.get('course_id')
+    currency = request.POST.get('currency')
+    return render(request, 'payment_iamport.html', {'amount': amount, 'basket_id': basket_id, 'order_number': order_number, 'course_id': course_id, 'currency': currency})
+
+
+def iamport_ok(request):
+    r = requests.post('http://localhost:8002/payment/iamport/pay/', data={'request': request})
+    print 'iamport_ok s~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+    print r.status_code
+    if r.status_code == 200:
+        return JsonResponse({'receipt_url': r.url})
+    print r.text
+    return JsonResponse({'msg': 'ooooo'})
 
 
 def get_course_enrollments(user):

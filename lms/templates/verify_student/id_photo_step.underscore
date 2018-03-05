@@ -1,4 +1,4 @@
-<div id="wrapper-idphoto" class="wrapper-view block-photo id-photo-step">
+    <div id="wrapper-idphoto" class="wrapper-view block-photo id-photo-step">
   <div class="idphoto view">
     <h3 class="title"><%- gettext( "Take a Photo of Your ID" ) %></h3>
     <div class="instruction">

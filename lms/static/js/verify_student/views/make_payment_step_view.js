@@ -70,7 +70,9 @@ var edx = edx || {};
         },
 
         _getPaymentButtonHtml: function(processorName) {
+            console.log(processorName);
             var self = this;
+            console.log(self);
             return _.template(
                 '<button class="next <%- btnClass %> payment-button" id="<%- name %>" ><%- text %></button> '
             )({name: processorName, text: self._getPaymentButtonText(processorName), btnClass: this.btnClass});
@@ -136,6 +138,7 @@ var edx = edx || {};
         },
 
         setPaymentEnabled: function( isEnabled ) {
+            console.log('setPaymentEnabled s---');
             if ( _.isUndefined( isEnabled ) ) {
                 isEnabled = true;
             }
@@ -186,6 +189,7 @@ var edx = edx || {};
             // these parameters, then submit it to the payment processor.
             // This will send the user to an externally-hosted page
             // where she can proceed with payment.
+            console.log('handleCreateOrderResponse s-----');
             var form = $( '#payment-processor-form' );
 
             $( 'input', form ).remove();
@@ -278,6 +282,7 @@ var edx = edx || {};
 
         // Stubbed out in tests
         submitForm: function( form ) {
+            console.log('submitForm s ----');
             form.submit();
         }
 
